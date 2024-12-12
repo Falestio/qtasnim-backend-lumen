@@ -1,0 +1,117 @@
+### ======================================== BARANG ======================================== 
+### Mendapatkan Daftar Barang
+GET http://localhost:8000/api/v1/barang?per_page=5&page=1&sort_order=asc&sort_by=nama_barang&query=t
+Accept:application/json
+
+### Mendapatkan Daftar Barang
+GET http://localhost:8000/api/v1/barang?isPaginated=false
+Accept:application/json
+
+### Menyimpan Barang Baru
+POST http://localhost:8000/api/v1/barang
+Content-Type: application/json
+Accept:application/json
+
+{
+    "nama_barang": "tzorzis",
+    "stok": 50,
+    "jenis_barang_id": 1
+}
+
+### Menampilkan Barang Tertentu
+GET http://localhost:8000/api/v1/barang/2
+Accept:application/json
+
+### Memperbarui Barang
+PUT http://localhost:8000/api/v1/barang/1
+Content-Type: application/json
+
+{
+    "nama_barang": "Ayam",
+    "stok": 150,
+    "jenis_barang_id": 2
+}
+
+### Menghapus Barang Not Force
+DELETE http://localhost:8000/api/v1/barang/2
+Accept:application/json
+
+### Menghapus Barang Forced
+DELETE http://localhost:8000/api/v1/barang/1?isForce=true
+Accept:application/json
+
+
+### ======================================== JENIS BARANG ======================================== 
+
+### Mendapatkan Daftar Jenis Barang
+GET http://localhost:8000/api/v1/jenis_barang?per_page=2&page=1
+Accept:application/json
+
+### Mendapatkan Daftar Jenis Barang
+GET http://localhost:8000/api/v1/jenis_barang?isPaginated=false
+Accept:application/json
+
+### Daftar Jenis Barang serta jumlah terjual
+GET http://localhost:8000/api/v1/jenis_barang_terjual?sort_order=desc
+Accept:application/json
+
+### Menyimpan Jenis Barang Baru
+POST http://localhost:8000/api/v1/jenis_barang
+Content-Type: application/json
+Accept:application/json
+
+{
+    "jenis_barang": "Makanan"
+}
+
+### Menampilkan Jenis Barang Tertentu
+GET http://localhost:8000/api/v1/jenis_barang/2
+
+### Memperbarui Jenis Barang
+PUT http://localhost:8000/api/v1/jenis_barang/1
+Content-Type: application/json
+
+{
+    "jenis_barang": "Minuman Dingin"
+}
+
+### Menghapus Jenis Barang non force
+DELETE http://localhost:8000/api/v1/jenis_barang/1
+Content-Type: application/json
+Accept:application/json
+
+### Menghapus Jenis Barang Force
+DELETE http://localhost:8000/api/v1/jenis_barang/3?isForce=true
+Accept:application/json
+
+### ======================================== TRANSAKSI ======================================== 
+
+### Mendapatkan Daftar Transaksi
+GET http://localhost:8000/api/v1/transaksi?sort_order=asc
+
+### CREATE Transaksi Baru
+POST http://localhost:8000/api/v1/transaksi
+Content-Type: application/json
+
+{
+    "barang_id": 2,
+    "jumlah_terjual": 7,
+    "tanggal_transaksi": "2024-12-10"
+}
+
+### Menampilkan Transaksi Tertentu
+GET http://localhost:8000/api/v1/transaksi/1
+
+### Memperbarui Transaksi
+PUT http://localhost:8000/api/v1/transaksi/1
+Content-Type: application/json
+
+{
+    "barang_id": 3,
+    "jumlah_terjual": 2,
+    "tanggal_transaksi": "2024-12-12"
+}
+
+### Menghapus Transaksi
+DELETE http://localhost:8000/api/v1/transaksi/1
+Accept:application/json
